@@ -180,6 +180,90 @@ export default async function UserDashboardData() {
           </div>
         </div>
 
+        <div className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden shadow-sm">
+          <div className="p-6 border-b border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-gray-900/50">
+            <div className="flex items-center gap-3">
+              <span className="w-2 h-8 bg-amber-400 rounded-full" />
+              <div>
+                <h2 className="text-xl font-bold text-white">Official Merch</h2>
+                <p className="text-xs text-gray-400 mt-0.5 uppercase tracking-wider">
+                  MINARE&apos;26 exclusive collection
+                </p>
+              </div>
+            </div>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfAtyFK35TRWt76ZsXP6uyl6fn-l34olHVoj1FqdDL6eQ14lA/viewform?usp=sharing&ouid=102508462596128705218"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm text-black bg-amber-400 hover:bg-amber-300 transition-all duration-200 shadow-md hover:shadow-amber-400/30"
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+              Buy Now
+            </a>
+          </div>
+          <div className="p-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                {
+                  src: "https://res.cloudinary.com/dbnfkkfov/image/upload/v1771781126/uh9oyekafo5ixpzjmty9.png",
+                  label: "Merch 1",
+                },
+                {
+                  src: "https://res.cloudinary.com/dbnfkkfov/image/upload/v1771781124/er2ee3arhplhwc0f60i0.png",
+                  label: "Merch 2",
+                },
+                {
+                  src: "https://res.cloudinary.com/dbnfkkfov/image/upload/v1771781126/tjhpt2hyoi14ecbpbmuv.png",
+                  label: "Merch 3",
+                },
+                {
+                  src: "https://res.cloudinary.com/dbnfkkfov/image/upload/v1771781125/p9tpolgl9exrpt89y3ul.png",
+                  label: "Merch 4",
+                },
+              ].map((item) => (
+                <a
+                  key={item.src}
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfAtyFK35TRWt76ZsXP6uyl6fn-l34olHVoj1FqdDL6eQ14lA/viewform?usp=sharing&ouid=102508462596128705218"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative rounded-xl overflow-hidden border border-gray-800 hover:border-amber-400/40 transition-all duration-300 bg-black/40"
+                >
+                  <div className="relative w-full aspect-square">
+                    <Image
+                      src={item.src}
+                      alt={item.label}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 200px"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-300 flex items-center justify-center">
+                      <span className="text-white font-semibold text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 px-4 py-2 rounded-lg bg-amber-400/20 border border-amber-400/40 backdrop-blur-sm">
+                        Buy Now
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <p className="mt-4 text-center text-xs text-gray-500">
+              Click any item or the button above to order the official
+              MINARE&apos;26 merchandise.
+            </p>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* LEFT COLUMN - Primary Actions & Content */}
           <div className="lg:col-span-2 space-y-8">
@@ -297,6 +381,8 @@ export default async function UserDashboardData() {
                 )}
               </div>
             </div>
+
+            {/* ── Official Merch Section ── */}
 
             {/* ID Card Upload Section */}
             {registration && (
