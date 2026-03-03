@@ -6,6 +6,7 @@ import { IdCardUpload } from "@/components/features/Minare/Registration/UserDash
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { redirect } from "next/navigation";
+import { ConnectionErrorDialog } from "@/components/ui/ConnectionErrorDialog";
 
 export default async function UserDashboardData() {
   const session = await getSession();
@@ -280,8 +281,8 @@ export default async function UserDashboardData() {
                       registration.status === "approved"
                         ? "bg-green-500/10 text-green-400 border-green-500/20"
                         : registration.status === "rejected"
-                        ? "bg-red-500/10 text-red-400 border-red-500/20"
-                        : "bg-yellow-500/10 text-yellow-400 border-yellow-500/20"
+                          ? "bg-red-500/10 text-red-400 border-red-500/20"
+                          : "bg-yellow-500/10 text-yellow-400 border-yellow-500/20"
                     }`}
                   >
                     {registration.status}
@@ -746,6 +747,8 @@ export default async function UserDashboardData() {
           </div>
         </div>
       </div>
+
+      <ConnectionErrorDialog />
     </div>
   );
 }

@@ -16,7 +16,10 @@ import { useActionState, useState } from "react";
 import { Loader2 } from "lucide-react";
 
 export default function SignupPage() {
-  const [state, action, isPending] = useActionState(createUserAction, null);
+  const [state, action, isPending] = useActionState(
+    createUserAction,
+    undefined as any,
+  );
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     username: "",
@@ -32,7 +35,7 @@ export default function SignupPage() {
   });
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -41,7 +44,7 @@ export default function SignupPage() {
     e.preventDefault();
     const currentStepFields = getFieldsForStep(step);
     const isValid = currentStepFields.every(
-      (field) => formData[field as keyof typeof formData]
+      (field) => formData[field as keyof typeof formData],
     );
 
     if (isValid) {
